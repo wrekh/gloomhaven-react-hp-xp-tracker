@@ -3,18 +3,30 @@ import CounterComponent from "../templates/CounterComponent.js";
 import "./index.css";
 
 const IndexPage = () => {
-  const [maxValue, setMaxValue] = useState();
+  const [maxValue, setMaxValue] = useState(0);
   const [isConfirmed, setIsConfirmed] = useState(false);
   let hp = { type: "hp", maxValue: maxValue };
   let xp = { type: "xp" };
 
   const resetCounter = () => {
-    setMaxValue();
+    setMaxValue(0);
     setIsConfirmed(false);
   };
 
   const initializeCouter = () => {
     setIsConfirmed(true);
+  };
+
+  const checkIfNumber = (event) => {
+    /**
+     * Allowing: Integers | Backspace | Tab | Delete | arrow keys
+     **/
+
+    const regex = new RegExp(
+      /(^\d*$)|(Backspace|Tab|Delete|ArrowLeft|ArrowRight|ArrowUp|ArrowDown)/
+    );
+
+    return !event.key.match(regex) && event.preventDefault();
   };
   return (
     <main>
@@ -33,16 +45,27 @@ const IndexPage = () => {
       {!isConfirmed && (
         <>
           <div className="welcome-container">
+            <label htmlFor="maxhp">MAX HP:</label>
             <input
+              id="maxhp"
+              name="maxhp"
               type="number"
+              min="0"
+              max="99"
               value={maxValue}
+              onKeyDown={checkIfNumber}
               onChange={(e) => setMaxValue(e.target.value)}
             />
-            <button onClick={() => initializeCouter()}>Confirm</button>
+            <button
+              className="confirm-button"
+              onClick={() => initializeCouter()}
+            >
+              Confirm
+            </button>
             <div>
               <p className="welcome-instructions">
-                Simply input your character max HP value in the input box above
-                and confirm your choice.
+                Input your character maximum Health Points or leave it blank to
+                select it manually.
               </p>
             </div>
           </div>
