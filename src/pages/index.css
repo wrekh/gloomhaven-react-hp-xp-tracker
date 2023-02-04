@@ -1,0 +1,120 @@
+body {
+  background-color: #080c0b;
+  font-family: -apple-system, system-ui, "Segoe UI", Roboto, "Helvetica Neue",
+  Ubuntu, sans-serif;
+}
+
+div.counter-container {
+  display: flex;
+  margin:auto;
+  max-width: 25rem;
+  align-items: center;
+}
+
+div.counter-wrap {
+  display: flex;
+  flex: 1;
+}
+
+div.counter-wrap {
+  border-left: 1px black solid;
+  border-right: 1px black solid;
+}
+
+.counter-buttons {
+  max-width: 10rem;
+  flex-wrap: wrap;
+}
+
+.counter-buttons > button {
+  width: 6rem;
+  height: 4rem;
+  appearance: button;
+  backface-visibility: hidden;
+  border-width: 0;
+  box-shadow: rgba(50, 50, 93, 0.25) 0 0 0 1px inset,
+    rgba(50, 50, 93, 0.25) 0 2px 5px 0, rgba(0, 0, 0, 0.8) 0 1px 1px 0;
+  box-sizing: border-box;
+  cursor: pointer;
+  font-size: 100%;
+  line-height: 1.15;
+  margin: auto;
+  outline: none;
+  overflow: hidden;
+  padding: 0 25px;
+  position: relative;
+  text-align: center;
+  text-transform: none;
+  transform: translateZ(0);
+  transition: all 0.2s, box-shadow 0.08s ease-in;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+  width: 100%;
+}
+
+.buttons__hp > button {
+  background-color: #7d1220;
+  color: white;
+}
+
+.buttons__hp > button.counter-increment {
+  border-radius: 1rem 0 0 0;
+}
+
+.buttons__hp > button.counter-decrement {
+  border-radius: 0 0 0 1rem;
+}
+
+.buttons__xp > button {
+  color: #fff;
+  background-color: #033c79;
+}
+
+.buttons__xp > button.counter-increment {
+  border-radius: 0 1rem 0 0;
+}
+
+.buttons__xp > button.counter-decrement {
+  border-radius: 0 0 1rem 0;
+}
+
+.buttons__hp {
+  order: 0;
+}
+
+.buttons__xp {
+  order: 5;
+}
+
+div.display-wrap {
+  background-color: aliceblue;
+  display: grid;
+  width: 5rem;
+  text-align: center;
+  grid-template-rows: [row1-start] 2rem [row1-end row2-start] 4rem [row2-end row3-start] 2rem [row3-end];
+}
+
+div.display-wrap > div.change,
+div.display-wrap > div.name {
+  font-size: 1rem;
+}
+div.display-wrap > div.value {
+  font-size: 2.5rem;
+}
+div.display__xp > * {
+  color: #033c79;
+}
+
+div.display__hp > * {
+  color: #7d1220;
+}
+
+.reset-container, .welcome-container {
+  margin: 0.5rem auto 0.5rem auto;
+  width: fit-content;
+  display: grid;
+  align-content: center;
+  align-items: center;
+  color:white;
+}
